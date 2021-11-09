@@ -1,18 +1,18 @@
 <template>
   <div id="main-flights">
-    <div v-if="selectedFlights.length > 0" id="selected-flights">
-      <ul class="flight" v-for="flight in selectedFlights" :key="flight.id">
-        <li>
+    <div v-if="this.options.length > 0" id="selected-flights">
+      <v-row v-for="flight in selectedFlights" :key="flight.id">
+        <v-col cols="12">
           <flight :flight="flight"></flight>
-        </li>
-      </ul>
+        </v-col>
+      </v-row>
     </div>
     <div v-else id="flights">
-      <ul class="flight" v-for="flight in flights" :key="flight.id">
-        <li>
+      <v-row v-for="flight in flights" :key="flight.id">
+        <v-col cols="12">
           <flight :flight="flight"></flight>
-        </li>
-      </ul>
+        </v-col>
+      </v-row>
     </div>
   </div>
 </template>
@@ -29,8 +29,8 @@ export default {
   watch: {
     options: function () {
       if (this.options.length > 0) {
-        this.selectedFlights = this.flights.filter((flight) => {
-          if (this.options.includes(flight.validating_carrier)) return flight;
+        this.selectedFlights = this.flights.filter((e) => {
+          if (this.options.includes(e.validating_carrier)) return e;
         });
       }
     },

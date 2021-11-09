@@ -1,12 +1,22 @@
 <template>
-  <div id="options">
-    <span v-for="key in keys" :key="key">
-      <v-checkbox
-        v-model="content"
-        :value="key"
-        :label="airlines[key]"
-      ></v-checkbox>
-    </span>
+  <div id="options" class="options">
+    <v-row>
+      <v-col class="pb-0 mx-2">
+        <strong>Авиакомпании</strong>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="pt-0 mx-2">
+        <div v-for="key in keys" :key="key">
+          <v-checkbox
+            v-model="content"
+            :value="key"
+            :label="airlines[key]"
+            hide-details
+          ></v-checkbox>
+        </div>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -30,3 +40,10 @@ export default {
   }),
 };
 </script>
+
+<style>
+.options {
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+</style>

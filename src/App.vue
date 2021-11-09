@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :style="{ background: $vuetify.theme.themes[theme].background }">
     <v-main>
       <main-body></main-body>
     </v-main>
@@ -12,5 +12,11 @@ export default {
   name: "App",
 
   components: { MainBody },
+
+  computed: {
+    theme() {
+      return this.$vuetify.theme.dark ? "dark" : "light";
+    },
+  },
 };
 </script>

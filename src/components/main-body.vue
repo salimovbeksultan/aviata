@@ -1,5 +1,5 @@
 <template>
-  <v-container id="body">
+  <v-container id="body" class="pt-10">
     <v-row>
       <v-col cols="12" md="4">
         <main-options v-model="options"></main-options>
@@ -20,11 +20,7 @@ export default {
 
   components: { MainOptions, MainFlights },
 
-  methods: {
-    onSelected() {
-      console.log(`Captured`);
-    },
-  },
+  methods: {},
 
   data: () => ({
     options: [],
