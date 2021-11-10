@@ -1,19 +1,15 @@
 <template>
-  <div id="main-flights">
-    <div v-if="this.options.length > 0" id="selected-flights">
-      <v-row v-for="flight in selectedFlights" :key="flight.id">
-        <v-col cols="12">
-          <flight :flight="flight"></flight>
-        </v-col>
-      </v-row>
-    </div>
-    <div v-else id="flights">
-      <v-row v-for="flight in flights" :key="flight.id">
-        <v-col cols="12">
-          <flight :flight="flight"></flight>
-        </v-col>
-      </v-row>
-    </div>
+  <div>
+    <v-row v-for="flight in selectedFlights" :key="flight.id">
+      <v-col cols="12">
+        <flight :flight="flight"></flight>
+      </v-col>
+    </v-row>
+    <v-row v-for="flight in flights" :key="flight.id">
+      <v-col cols="12">
+        <flight :flight="flight"></flight>
+      </v-col>
+    </v-row>
   </div>
 </template>
 

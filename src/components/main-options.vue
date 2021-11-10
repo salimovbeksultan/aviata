@@ -1,5 +1,5 @@
 <template>
-  <div id="options" class="options">
+  <div id="options">
     <v-row>
       <v-col class="pb-0 mx-2">
         <strong>Авиакомпании</strong>

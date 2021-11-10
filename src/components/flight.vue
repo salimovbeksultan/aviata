@@ -1,11 +1,16 @@
 <template>
   <div class="flight">
     <v-row class="mb-5">
-      <v-col cols="8"></v-col>
+      <v-col cols="8">
+        <div></div>
+      </v-col>
       <v-col cols="4" class="flight-menu">
         <div class="d-flex flex-column">
-          <span class="text-h6 mx-auto" v-text="flight.price"></span>
-          <v-btn block> Выбрать </v-btn>
+          <div class="mx-auto">
+            <span class="text-h5 mx-auto" v-text="flight.price"></span>
+            <span class="text-h6"> {{ formatCurrency() }}</span>
+          </div>
+          <v-btn color="primary" block> Выбрать </v-btn>
         </div>
       </v-col>
     </v-row>
@@ -16,6 +21,18 @@
 export default {
   name: "Flight",
   props: ["flight"],
+  methods: {
+    formatCurrency() {
+      switch (this.flight.currency) {
+        case "KZT":
+          return "₸";
+        case "RUB":
+          return "₽";
+        default:
+          return "";
+      }
+    },
+  },
 };
 </script>
 
