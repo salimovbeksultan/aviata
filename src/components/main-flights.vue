@@ -1,16 +1,24 @@
 <template>
-  <div>
-    <v-row v-for="flight in selectedFlights" :key="flight.id">
-      <v-col cols="12">
-        <flight :flight="flight"></flight>
-      </v-col>
-    </v-row>
-    <v-row v-for="flight in flights" :key="flight.id">
-      <v-col cols="12">
-        <flight :flight="flight"></flight>
-      </v-col>
-    </v-row>
-  </div>
+  <section>
+    <div v-show="options.length == 0">
+      <flight
+        v-for="flight in flights"
+        :key="flight.id"
+        :flight="flight"
+        :airlines="airlines"
+        class="mb-5"
+      ></flight>
+    </div>
+    <div v-show="options.length > 0">
+      <flight
+        v-for="flight in selectedFlights"
+        :key="flight.id"
+        :flight="flight"
+        :airlines="airlines"
+        class="mb-5"
+      ></flight>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -34,6 +42,7 @@ export default {
 
   data: () => ({
     flights: json.flights,
+    airlines: json.airlines,
     selectedFlights: [],
   }),
 };

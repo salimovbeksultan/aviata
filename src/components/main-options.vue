@@ -1,23 +1,21 @@
 <template>
-  <div id="options">
-    <v-row>
-      <v-col class="pb-0 mx-2">
+  <v-expansion-panels>
+    <v-expansion-panel expand>
+      <v-expansion-panel-header>
         <strong>Авиакомпании</strong>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col class="pt-0 mx-2">
-        <div v-for="key in keys" :key="key">
-          <v-checkbox
-            v-model="content"
-            :value="key"
-            :label="airlines[key]"
-            hide-details
-          ></v-checkbox>
-        </div>
-      </v-col>
-    </v-row>
-  </div>
+      </v-expansion-panel-header>
+      <v-expansion-panel-content>
+        <v-checkbox
+          v-for="key in keys"
+          :key="key"
+          v-model="content"
+          :value="key"
+          :label="airlines[key]"
+          hide-details
+        ></v-checkbox>
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+  </v-expansion-panels>
 </template>
 
 <script>
@@ -37,13 +35,7 @@ export default {
     keys: Object.keys(json.airlines),
     airlines: json.airlines,
     content: [],
+    panel: [0],
   }),
 };
 </script>
-
-<style>
-.options {
-  background: #f5f5f5;
-  border-radius: 4px;
-}
-</style>
