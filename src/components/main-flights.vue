@@ -28,7 +28,9 @@ import flight from "./flight.vue";
 export default {
   components: { flight },
   name: "MainFlights",
-  props: ["options"],
+  props: {
+    options: Array,
+  },
 
   watch: {
     options: function () {
